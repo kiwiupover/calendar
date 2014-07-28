@@ -3,4 +3,7 @@
 .calendar-wrapper
   = render "week_calendar"
 
+:javascript
+  var calendarEvents = #{@events.to_json};
+
 
