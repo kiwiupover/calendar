@@ -9,7 +9,7 @@
     %th.day-header Fri
     %th.day-header Sat
   - hours = 0..23
-  - hours.each_with_index do |hour, index|
+  - hours.each do |hour|
     %tr
       %td
         = handle_hour(hour, index)
