@@ -22,15 +22,17 @@ var calendar = (function(argument) {
   };
 
   var makeEvent = function(event){
+    // using Jan 1 2014 just as a random date to setup a date object
     var start_time = new Date("01/01/2014 " + event.start_time).getTime();
     var end_time = new Date("01/01/2014 " + event.end_time).getTime();
     var beginningTime = new Date("01/01/2014 " + "00:00").getTime();
+
     var startSlot = (start_time - beginningTime) / 1000 / 60 / 60;
     var timeLength = (end_time - start_time) / 1000 / 60 / 60;
 
+    var top = pxPerSlot * (startSlot * 2) + calHeader;
     var width = dayWidth - (borders / 2);
     var height = pxPerSlot * (timeLength * 2);
-    var top = pxPerSlot * (startSlot * 2) + calHeader;
 
     return $('<div>')
       .addClass('event')
